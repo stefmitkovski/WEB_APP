@@ -1,4 +1,12 @@
-<?php require_once '../../views/partials/header.php'; ?>
+<?php require_once '../../views/partials/header.php'; 
+
+if(!isset($_SESSION['user'])){
+    session_start();
+}
+
+?>
+
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">

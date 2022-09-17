@@ -1,14 +1,17 @@
 # WEB_APP
 
-Mihaela 
+## Михаела
 
--cart
--design
--login forma
--logo 
-eShopper
+<input type="checkbox"> cart
 
-  stefan
+<input type="checkbox"> design
 
--baza
--funkcionalnost na log in forma
+<input type="checkbox"> login forma
+
+<input type="checkbox"> logo eShopper
+
+## Стефан
+
+<input type="checkbox"> baza
+
+<input type="checkbox"> funkcionalnost na log in forma
