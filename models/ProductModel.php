@@ -1,5 +1,5 @@
 <?php
-class FooModel
+class ProductModel
 
 {
     protected $db;
@@ -8,8 +8,16 @@ class FooModel
         $this->db = $db;
     }
 
-    public function getAllFoos() {
-        return $this->db->query('SELECT * FROM tutorials_tbl');
+    public function getAll() {
+        return $this->db->query('SELECT * FROM products');
+    }
+
+    public function getNew(){
+        return $this->db->query('SELECT * FROM products ORDER BY created_on ASC');
+    }
+
+    public function getPopular(){ // При времено е ова вака иначе ќе се сортира од табелата за транзакции
+        return $this->db->query('SELECT * FROM products ORDER BY stock');
     }
 
 }
