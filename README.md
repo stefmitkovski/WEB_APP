@@ -2,16 +2,16 @@
 
 ## Михаела
 
-<input type="checkbox"> cart
+- [ ] cart
 
-<input type="checkbox"> design
+- [ ] design
 
-<input type="checkbox"> login forma
+- [ ] login forma
 
-<input type="checkbox"> logo eShopper
+- [ ] logo eShopper
 
 ## Стефан
 
-<input type="checkbox"> baza
+- [ ] baza
 
-<input type="checkbox"> funkcionalnost na log in forma
+- [ ] funkcionalnost na log in forma
