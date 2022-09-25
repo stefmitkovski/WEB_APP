@@ -4,14 +4,14 @@
 
 - [ ] cart
 
-- [ ] design
+- [x] design
 
-- [ ] login forma
+- [x] login forma
 
-- [ ] logo eShopper
+- [x] logo eShopper
 
 ## Стефан
 
-- [ ] baza
+- [x] baza
 
 - [ ] funkcionalnost na log in forma
