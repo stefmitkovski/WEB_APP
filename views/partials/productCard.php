@@ -27,7 +27,13 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-primary mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center">
+                            <form method="POST" action="add-cart.php">
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="productID" value="<?php echo $row["product_id"]; ?>">
+                                <input type="submit" class="btn btn-primary mt-auto" value="Add to cart">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -11,8 +11,9 @@ $models = new ProductModel($db);
 
 require_once '../../views/partials/navbar.php';
 
-
-require_once '../../views/partials/navbar.php';
+if(!isset($_SESSION['user'])){
+  session_start();
+}
 
 ?>
 

@@ -1,7 +1,4 @@
-<?php 
-if(!isset($_SESSION['user'])){
-    session_start();
-}
+<?php
 
 require_once '../../views/partials/header.php';
 ?>
@@ -49,7 +46,20 @@ require_once '../../views/partials/header.php';
                 <button class="btn btn-outline-primary rounded-pill" type="submit">
                     <i class="fa-solid fa-cart-shopping me-1"></i>
                     Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">
+                        <?php
+                        if (isset($_COOKIE["cart"])) {
+                            $cart = json_decode($_COOKIE["cart"]);
+                            $total = 0;
+                            foreach ($cart as $c) {
+                                $total = $total + $c->quantity;
+                            }
+                            echo $total;
+                        } else {
+                            echo "0";
+                        }
+                        ?>
+                    </span>
                 </button>
             </form>
         </div>
@@ -58,17 +68,17 @@ require_once '../../views/partials/header.php';
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        
-            
-            <div class="modal-body">
-            <div class="modal-content">
-            <div class="modal-header"><img src="logo/elektro1-1.png" width="50%" height="50vh" alt="Elektro" style="margin-left:22%">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
 
-            
+
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header"><img src="logo/elektro1-1.png" width="50%" height="50vh" alt="Elektro" style="margin-left:22%">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
                 <div class="login-wrap">
                     <div class="login-html">
                         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab tabs" style="cursor: pointer;">Sign In</label>
