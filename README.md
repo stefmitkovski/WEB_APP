@@ -14,6 +14,8 @@
 
 ## Стефан
 
-- [x] baza
+- [x] Database structure
 
-- [ ] funkcionalnost na log in forma
+- [ ] Login and Signup
+
+- [ ] Cookies (half done)
