@@ -14,15 +14,6 @@ require_once '../../views/partials/navbar.php';
 
 ?>
 
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With cheaper prices !!!</p>
-        </div>
-    </div>
-</header>
-
 <section class="h-100 gradient-custom">
   <div class="container py-5">
     <div class="row d-flex justify-content-center my-4">
@@ -67,7 +58,7 @@ require_once '../../views/partials/navbar.php';
                 <div class="d-flex mb-4" style="max-width: 300px">
                   <button class="btn btn-primary px-3 me-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                    <i class="fas fa-minus"></i>
+                    <i class="fa fa-minus"></i>
                   </button>
 
                   <div class="form-outline">
@@ -77,7 +68,7 @@ require_once '../../views/partials/navbar.php';
 
                   <button class="btn btn-primary px-3 ms-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                    <i class="fas fa-plus"></i>
+                    <i class="fa fa-plus"></i>
                   </button>
                 </div>
                 <!-- Quantity -->

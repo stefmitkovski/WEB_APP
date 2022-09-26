@@ -9,15 +9,18 @@ class ProductModel
     }
 
     public function getAll() {
-        return $this->db->query('SELECT * FROM products');
+        return $this->db->query('SELECT * FROM products LIMIT 3');
     }
 
     public function getNew(){
-        return $this->db->query('SELECT * FROM products ORDER BY created_on ASC');
+        return $this->db->query('SELECT * FROM products ORDER BY created_on ASC LIMIT 3');
     }
 
     public function getPopular(){ // При времено е ова вака иначе ќе се сортира од табелата за транзакции
-        return $this->db->query('SELECT * FROM products ORDER BY stock');
+        return $this->db->query('SELECT * FROM products ORDER BY stock ASC LIMIT 3');
     }
-
+    
+    public function getOnSale(){ // При времено е ова вака иначе ќе се сортира од табелата за транзакции
+        return $this->db->query('SELECT * FROM products ORDER BY price_new  ASC LIMIT 3');
+    }
 }

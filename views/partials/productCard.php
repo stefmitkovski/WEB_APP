@@ -1,16 +1,16 @@
 <!-- Section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+<section class="py-8">
+    <div class="container px-7 px-lg-7 mt-7">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-5 row-cols-xl-7 justify-content-center">
             <?php foreach ($modelsList as $row): ?>
-            <div class="col mb-5">
+            <div class="col mb-7">
                 <div class="card h-100">
                     <!-- Sale badge-->
                     <?php if(isset($row['price_new'])): ?> 
                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <?php endif ?>
                     <!-- Product image-->
-                    <img class="card-img-top" src="..<?php echo $row['image'] ?>" alt="..." />
+                    <img class="card-img-top" src='<?php echo $row['image'] ?>' alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
@@ -27,7 +27,7 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        <div class="text-center"><a class="btn btn-primary mt-auto" href="#">Add to cart</a></div>
                     </div>
                 </div>
             </div>
@@ -35,3 +35,5 @@
         </div>
     </div>
 </section>
+
+

@@ -27,6 +27,7 @@ require_once 'database.php';
     image varchar(300) not null,
     price_new int unsigned,
     price_old int unsigned not null,
+    category varchar(100) not null,
     stock int not null,
     created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
