@@ -10,6 +10,8 @@
 
 - [x] logo eShopper
 
+- [ ] hardcode dummydata.php (half done)
+
 ## Стефан
 
 - [x] baza
