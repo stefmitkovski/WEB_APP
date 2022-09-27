@@ -9,7 +9,7 @@ class ProductModel
     }
 
     public function getAll() {
-        return $this->db->query('SELECT * FROM products LIMIT 3');
+        return $this->db->query('SELECT * FROM products');
     }
 
     public function getNew(){
