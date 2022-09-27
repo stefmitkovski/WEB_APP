@@ -10,7 +10,7 @@
                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <?php endif ?>
                     <!-- Product image-->
-                    <img class="card-img-top" src='<?php echo $row['image'] ?>' alt="..." />
+                    <img class="card-img-top" src='..<?php echo $row['image'] ?>' alt="..." />
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">

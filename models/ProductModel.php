@@ -23,4 +23,10 @@ class ProductModel
     public function getOnSale(){ // При времено е ова вака иначе ќе се сортира од табелата за транзакции
         return $this->db->query('SELECT * FROM products ORDER BY price_new  ASC LIMIT 3');
     }
+
+    public function getSprecific($id){
+        $statement = $this->db->prepare("SELECT * FROM products WHERE product_id = ?");
+        $statement->execute([$id]);
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
 }

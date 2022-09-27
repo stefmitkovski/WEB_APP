@@ -18,4 +18,4 @@
 
 - [ ] Login and Signup
 
-- [ ] Cookies (half done)
+- [x] Cookies
