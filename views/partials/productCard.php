@@ -18,10 +18,10 @@
                             <h5 class="fw-bolder"><?php echo $row['title'] ?></h5>
                             <!-- Product price-->
                             <?php if(isset($row['price_new'])): ?>
-                            <span class="text-muted text-decoration-line-through"><?php echo $row['price_new'] ?></span>
-                            <?php echo $row['price_old'] ?>
+                            <span style="text-decoration: line-through" class="text-muted text-decoration-line-through"><?php echo $row['price_old'] . "$" ?></span>
+                            <?php echo $row['price_new'] . "$" ?>
                             <?php else: ?>
-                            <?php echo $row['price_old'] ?>
+                            <?php echo $row['price_old'] . "$" ?>
                             <?php endif ?>
                         </div>
                     </div>
