@@ -5,10 +5,11 @@ require_once '../../views/partials/header.php';
 <style>
     <?php include '../../public/app.css' ?>
 </style>
+<?php if(!isset($_SESSION['user'])): ?>
 <section>
     <p class="no">Don't have an account yet? <a href="#" data-toggle="modal" data-target="#exampleModal">Sign up</a> and get 20% off on all products!</p>
 </section>
-
+<?php endif;?>
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark " style="margin: 30px; border-radius:50px; z-index: 100;">
     <a class="navbar-brand" href="index.php"><img src="logo/elektro1-1belo.png" height="60vh" style="padding: 10px;" alt="Elektro"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +38,7 @@ require_once '../../views/partials/header.php';
             </form>
             </li>
         </ul>
+        <?php if(!isset($_SESSION['user'])): ?>
         <div style="width: 26%; display: flex; position: relative;">
             <button class="btn btn-outline-primary mx-1 rounded-pill" type="submit" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-user me-1"></i>
@@ -63,6 +65,7 @@ require_once '../../views/partials/header.php';
                 </button>
             </form>
         </div>
+        <?php endif; ?>
     </div>
 </nav>
 
@@ -84,8 +87,9 @@ require_once '../../views/partials/header.php';
                         <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab tabs" style="cursor: pointer;">Sign In</label>
                         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab tabs" style="cursor: pointer;">Sign Up</label>
                         <div class="login-form">
-                            <div class="sign-in-htm">
-                                <div class="group">
+                            <form action="login.php" method="POST">
+                                <div class="sign-in-htm">
+                                    <div class="group">
                                     <label for="user" class="label">Username</label>
                                     <input id="user" type="text" class="input">
                                 </div>
@@ -100,32 +104,35 @@ require_once '../../views/partials/header.php';
                                 <div class="group">
                                     <input type="submit" class="button" value="Sign In">
                                 </div>
+                            </form>
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
                                     <a href="#forgot">Forgot Password?</a>
                                 </div>
                             </div>
                             <div class="sign-up-htm">
+                                <form action="register.php" method="POST">
                                 <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="user" type="text" class="input">
+                                    <label for="pass" class="label">Email Address</label>
+                                    <input id="pass" type="email" class="input" name="email" required>
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Phone number</label>
+                                    <input id="pass" type="tel" class="input" name="phone" required>
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password">
+                                    <input id="pass" type="password" class="input" data-type="password" name="password" required>
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Repeat Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password">
-                                </div>
-                                <div class="group">
-                                    <label for="pass" class="label">Email Address</label>
-                                    <input id="pass" type="email" class="input">
+                                    <input id="pass" type="password" class="input" data-type="password" name="repeatpassword" required>
                                 </div>
                                 <div class="group">
                                     <input type="submit" class="button" value="Sign Up">
                                 </div>
                                 <div class="hr"></div>
+                                </form>
                                 <div class="foot-lnk">
                                     <label for="tab-1" id="member">Already a Member?</a>
                                 </div>

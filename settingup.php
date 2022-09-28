@@ -6,12 +6,10 @@ require_once 'database.php';
     drop table if exists transaction;
     drop table if exists users;
     CREATE TABLE users (
-    email varchar(100) PRIMARY KEY,
-    first_name varchar(100) NOT NULL,
-    last_name varchar(100) NOT NULL,
+    email varchar(255) PRIMARY KEY,
     phone_number varchar(50) NOT NULL,
     discount int default 5,
-    password varchar(100) NOT NULL,
+    password varchar(255) NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 

@@ -1,9 +1,8 @@
 <?php
 
-
 require_once '../../database.php';
 
-include '../../models/ProductModel.php';
+require '../../models/ProductModel.php';
 
 $models = new ProductModel($db);
 
@@ -11,9 +10,20 @@ $models = new ProductModel($db);
 
 require_once '../../views/partials/navbar.php';
 
-if(!isset($_SESSION['user'])){
-  session_start();
-}
+if(!isset($_SESSION['user']) && isset($_COOKIE['errors'])){
+  session_destroy();
+  $errors = json_decode($_COOKIE['user']);
+  if(!empty($errors)){
+    require_once '../../views/partials/errors.php';
+    setcookie ("errors", "", time() - 3600);
+    }
+    session_start();
+  }else if(isset($_SESSION['user']) && isset($_COOKIE['errors'])){
+    setcookie ("errors", "", time() - 3600);
+    echo "Bravo";
+  }else{
+    session_start();
+  }
 
 ?>
 
