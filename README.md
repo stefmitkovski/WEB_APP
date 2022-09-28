@@ -8,9 +8,11 @@
 
 - [x] login forma
 
-- [x] logo eShopper
+- [x] logo Elektro (have feit in our products)
 
-- [ ] hardcode dummydata.php (half done)
+- [x] hardcode dummydata.php
+
+-[ ] product.php (sort by..., prikaz na site proizvodi, hald done)
 
 ## Стефан
 
