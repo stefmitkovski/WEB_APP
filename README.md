@@ -12,7 +12,7 @@
 
 - [x] hardcode dummydata.php
 
--[ ] product.php (sort by..., prikaz na site proizvodi, hald done)
+- [ ] product.php (sort by..., prikaz na site proizvodi, hald done)
 
 ## Стефан
 
