@@ -149,8 +149,8 @@ require_once '../../views/partials/header.php';
                                     <input id="pass" type="email" class="input" name="email" required>
                                 </div>
                                 <div class="group">
-                                    <label for="pass" class="label">Phone number</label>
-                                    <input id="pass" type="tel" class="input" name="phone" required>
+                                    <label for="pass" class="label">Name</label>
+                                    <input id="pass" type="text" class="input" name="name" required>
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Password</label>

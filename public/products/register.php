@@ -15,7 +15,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email =  $_POST['email'];
     $emailcheck = preg_match('/^[A-Za-z0-9\.]{0,}@[A-Za-z]{0,}\.com/', $email, $emailcheck);
-    $phone = $_POST["phone"];
+    $name = $_POST["name"];
     $password = $_POST['password'];
     $pconfirm = $_POST['repeatpassword'];
 
@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "The entered password isn't the right size";
     }
     
-    if (strlen($phone) > 55) {
-        $errors[] = "The phone number isn't the right size";
+    if (strlen($name) > 100) {
+        $errors[] = "The name number isn't the right size";
     }
 
     if ($user->checkExistence($email) > 0) {
@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (empty($errors)) {
-        if ($user->createUser($email,$phone,$password)) {
-            $_SESSION['user'] = $email;
+        if ($user->createUser($email,$name,$password)) {
+            $_SESSION['user'] = $name;
             header('Location: index.php');
             exit;
         }

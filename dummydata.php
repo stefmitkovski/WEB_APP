@@ -13,10 +13,10 @@ $faker = Faker\Factory::create();
 for ($i = 0; $i < 5; $i++) {
 
     // // Креирање на податоци за табелата 'users
-    $statement = $db->prepare('INSERT INTO users (email,phone_number,password)
-    VALUES (:email, :phone_number, :password)');
+    $statement = $db->prepare('INSERT INTO users (email,name,password)
+    VALUES (:email, :name, :password)');
     $statement->bindValue(':email', $faker->email());
-    $statement->bindValue(':phone_number', $faker->phoneNumber());
+    $statement->bindValue(':name', $faker->name());
     $statement->bindValue(':password', password_hash('password',PASSWORD_DEFAULT));
     $statement->execute();
 

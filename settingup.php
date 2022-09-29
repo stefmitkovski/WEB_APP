@@ -7,7 +7,7 @@ require_once 'database.php';
     drop table if exists users;
     CREATE TABLE users (
     email varchar(255) PRIMARY KEY,
-    phone_number varchar(50) NOT NULL,
+    name varchar(100) NOT NULL,
     discount int default 5,
     password varchar(255) NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP

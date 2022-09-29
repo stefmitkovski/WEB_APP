@@ -14,11 +14,11 @@ class UserModel
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createUser($email,$phone,$password){   // Креирај корисник
-        $statemant = $this->db->prepare('INSERT INTO users (email,phone_number,password) 
-                                    values (:email, :phone_number, :password)');
+    public function createUser($email,$name,$password){   // Креирај корисник
+        $statemant = $this->db->prepare('INSERT INTO users (email,name,password) 
+                                    values (:email, :name, :password)');
         $statemant->bindValue(':email', $email);
-        $statemant->bindValue(':phone_number',$phone);
+        $statemant->bindValue(':name',$name);
         $statemant->bindValue(':password', $password);
         return $statemant->execute();
     }
