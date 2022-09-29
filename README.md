@@ -18,6 +18,9 @@
 
 - [x] Database structure
 
-- [ ] Login and Signup
+- [x] Login, Signup and Logout functionality
 
 - [x] Cookies
+
+- [ ] Transactions
+
