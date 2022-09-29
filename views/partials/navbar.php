@@ -122,12 +122,12 @@ require_once '../../views/partials/header.php';
                             <form action="login.php" method="POST">
                                 <div class="sign-in-htm">
                                     <div class="group">
-                                    <label for="user" class="label">Username</label>
-                                    <input id="user" type="text" class="input">
+                                    <label for="user" class="label">Email</label>
+                                    <input id="user" type="email" class="input" name="email" required>
                                 </div>
                                 <div class="group">
                                     <label for="pass" class="label">Password</label>
-                                    <input id="pass" type="password" class="input" data-type="password">
+                                    <input id="pass" type="password" class="input" data-type="password" name="password" required>
                                 </div>
                                 <div class="group">
                                     <input id="check" type="checkbox" class="check" checked>

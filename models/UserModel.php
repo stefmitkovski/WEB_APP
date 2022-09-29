@@ -23,7 +23,10 @@ class UserModel
         return $statemant->execute();
     }
 
-    public function checkCredentials(){ // Провери дали се валидни податоците (недовршено)
-        return 0; 
+    public function checkCredentials($email){ // Провери дали се валидни податоците (недовршено)
+        $statement = $this->db->prepare('SELECT password,name FROM users WHERE email = :email');
+        $statement->bindValue(':email', $email);
+        $statement->execute();
+        return $statement; 
     }
 }
