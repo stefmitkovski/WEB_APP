@@ -8,22 +8,19 @@ $models = new ProductModel($db);
 
 // include 'views/foo-list.php';
 
-require_once '../../views/partials/navbar.php';
-
-if(!isset($_SESSION['user']) && isset($_COOKIE['errors'])){
+if(isset($_COOKIE['errors'])){
   session_destroy();
   $errors = json_decode($_COOKIE['user']);
   if(!empty($errors)){
     require_once '../../views/partials/errors.php';
     setcookie ("errors", "", time() - 3600);
-    }
-    session_start();
-  }else if(isset($_SESSION['user']) && isset($_COOKIE['errors'])){
-    setcookie ("errors", "", time() - 3600);
-    echo "Bravo";
-  }else{
-    session_start();
   }
+  session_start();
+}else if(!isset($_SESSION['user'])){
+  session_start();
+}
+
+require_once '../../views/partials/navbar.php';
 
 ?>
 

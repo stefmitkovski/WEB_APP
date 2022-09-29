@@ -5,12 +5,14 @@ require_once '../../models/UserModel.php';
 
 $user = new UserModel($db);
 
-session_unset();
-session_destroy();
+if(isset($_SESSION['user'])){
+    session_unset();
+    session_destroy();
+}
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
     $email =  $_POST['email'];
     $emailcheck = preg_match('/^[A-Za-z0-9\.]{0,}@[A-Za-z]{0,}\.com/', $email, $emailcheck);
     $phone = $_POST["phone"];
@@ -44,10 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errors)) {
         if ($user->createUser($email,$phone,$password)) {
             $_SESSION['user'] = $email;
-            session_write_close();
+            header('Location: index.php');
+            exit;
         }
+    }else{
+        setcookie("errors", json_encode($errors));
+        header('Location: index.php');
     }
-    setcookie("errors", json_encode($errors));
-    header('Location: index.php');
 }
 ?>

@@ -65,7 +65,39 @@ require_once '../../views/partials/header.php';
                 </button>
             </form>
         </div>
-        <?php endif; ?>
+        <?php else: ?>
+            <div style="width: 26%; display: flex; position: relative;">
+            <button class="btn btn-outline-primary mx-1 rounded-pill" type="submit">
+                    Hello, <?php echo $_SESSION['user']; ?>
+                </button>
+            <form action="logout.php">
+                <button class="btn btn-outline-primary mx-1 rounded-pill" type="submit">
+                    <i class="fa fa-user me-1"></i>
+                    Logout
+                </button>
+            </form>
+            <form class="d-flex" action="cart.php">
+                <button class="btn btn-outline-primary rounded-pill" type="submit">
+                    <i class="fa-solid fa-cart-shopping me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">
+                        <?php
+                        if (isset($_COOKIE["cart"])) {
+                            $cart = json_decode($_COOKIE["cart"]);
+                            $total = 0;
+                            foreach ($cart as $c) {
+                                $total = $total + $c->quantity;
+                            }
+                            echo $total;
+                        } else {
+                            echo "0";
+                        }
+                        ?>
+                    </span>
+                </button>
+            </form>
+        </div>
+        <?php endif;?>
     </div>
 </nav>
 
