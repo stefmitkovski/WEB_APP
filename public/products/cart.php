@@ -1,3 +1,6 @@
+<?php 
+require_once '../../views/partials/navbar.php';
+?>
 <?php if (isset($_COOKIE["cart"])) : ?>
   <?php
   include_once '../../models/ProductModel.php';
@@ -6,9 +9,6 @@
   $product = new ProductModel($db);
   $total = 0;
   $cart = json_decode($_COOKIE["cart"]);
-
-  require_once '../../views/partials/navbar.php';
-
 
   ?>
 
@@ -144,11 +144,6 @@
     </div>
   </section>
 <?php else : ?>
-  <?php
-  require_once '../../views/partials/navbar.php';
-  ?>
-
-
   <div class="row">
     <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
       <img src="../images/bag.svg" alt="bags" class="img-fluid mb-4">

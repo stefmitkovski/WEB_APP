@@ -1,6 +1,6 @@
 <?php
-
 require_once '../../views/partials/header.php';
+session_start();
 ?>
 <style>
     <?php include '../../public/app.css' ?>

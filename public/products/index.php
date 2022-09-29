@@ -1,7 +1,6 @@
 <?php
 
 require_once '../../database.php';
-
 require '../../models/ProductModel.php';
 
 $models = new ProductModel($db);
@@ -13,9 +12,7 @@ if(isset($_COOKIE['errors'])){
     require_once '../../views/partials/errors.php';
     setcookie ("errors", "", time() - 3600);
   }
-  session_start();
 }else if(!isset($_SESSION['user'])){
-  session_start();
 }
 
 require_once '../../views/partials/navbar.php';
