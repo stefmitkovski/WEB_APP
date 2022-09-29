@@ -6,11 +6,9 @@ require '../../models/ProductModel.php';
 
 $models = new ProductModel($db);
 
-// include 'views/foo-list.php';
-
 if(isset($_COOKIE['errors'])){
   session_destroy();
-  $errors = json_decode($_COOKIE['user']);
+  $errors = json_decode($_COOKIE['errors']);
   if(!empty($errors)){
     require_once '../../views/partials/errors.php';
     setcookie ("errors", "", time() - 3600);
