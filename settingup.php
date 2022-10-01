@@ -26,6 +26,7 @@ require_once 'database.php';
     price_new int unsigned,
     price_old int unsigned not null,
     category varchar(100) not null,
+    brand varchar(100) not null,
     stock int not null,
     created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
