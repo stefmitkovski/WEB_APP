@@ -4,6 +4,8 @@
 
 - [ ] cart
 
+- [ ] page(card) za sekoj individualen product
+
 - [x] design
 
 - [x] login forma
