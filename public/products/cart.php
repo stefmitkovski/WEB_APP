@@ -46,9 +46,6 @@ require_once '../../views/partials/navbar.php';
                         <i class="fas fa-trash"></i>
                       </button>
                     </form>
-                    <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
-                      <i class="fas fa-heart"></i>
-                    </button>
                     <!-- Data -->
                   </div>
 

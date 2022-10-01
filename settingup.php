@@ -37,13 +37,17 @@ require_once 'database.php';
 
     $sql = "
     drop table if exists anonymous;
-    CREATE TABLE anonymous (
-    email varchar(100) PRIMARY KEY
+    drop table if exists reset_password;
+    CREATE TABLE reset_password (
+    email varchar(255) NOT NULL,
+    token varchar(255) NOT NULL,
+    expDate datetime NOT NULL,
+    FOREIGN KEY (email) REFERENCES users(email)
     )";
 
     // use exec() because no results are returned
     $db->exec($sql);
-    echo "Table 'anonymous' created successfully \r\n";
+    echo "Table 'reset_password' created successfully \r\n";
 
     $sql = "
     CREATE TABLE transaction (
@@ -54,7 +58,6 @@ require_once 'database.php';
     product int,
     transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user) REFERENCES users(email),
-    FOREIGN KEY (anon_user) REFERENCES anonymous(email),
     FOREIGN KEY (product) REFERENCES products(product_id)
     )";
 
