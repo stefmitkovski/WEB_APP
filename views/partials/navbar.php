@@ -139,7 +139,7 @@ session_start();
                             </form>
                                 <div class="hr"></div>
                                 <div class="foot-lnk">
-                                    <a href="#forgot">Forgot Password?</a>
+                                    <a href="forgot.php">Forgot Password?</a>
                                 </div>
                             </div>
                             <div class="sign-up-htm">

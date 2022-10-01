@@ -26,3 +26,4 @@
 
 - [ ] Transactions
 
+- [ ] Forgot Password (Halfway done)

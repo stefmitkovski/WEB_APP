@@ -41,7 +41,6 @@ require_once 'database.php';
     CREATE TABLE reset_password (
     email varchar(255) NOT NULL,
     token varchar(255) NOT NULL,
-    expDate datetime NOT NULL,
     FOREIGN KEY (email) REFERENCES users(email)
     )";
 
