@@ -4,7 +4,7 @@
 
 - [ ] cart
 
-- [ ] page(card) za sekoj individualen product
+- [x] page(card) za sekoj individualen product
 
 - [x] design
 
@@ -14,7 +14,7 @@
 
 - [x] hardcode dummydata.php
 
-- [x] product.php (sort by..., prikaz na site proizvodi, hald done)
+- [x] product.php (sort by..., prikaz na site proizvodi)
 
 ## Стефан
 
