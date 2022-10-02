@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once '../../views/partials/navbar.php';
 ?>
 <?php if (isset($_COOKIE["cart"])) : ?>
@@ -28,7 +28,7 @@ require_once '../../views/partials/navbar.php';
                   <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
                     <!-- Image -->
                     <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-                      <img src="..<?php echo $prod["image"] ?>" class="w-100" alt="<?php echo $prod["title"] ?>" />
+                      <img src="<?php echo $prod["image"] ?>" class="w-100" alt="<?php echo $prod["title"] ?>" />
                       <a href="#!">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                       </a>
@@ -127,13 +127,13 @@ require_once '../../views/partials/navbar.php';
                     <p class="mb-0">(including VAT)</p>
                   </strong>
                 </div>
-                <span><strong>$<?php echo $total * 1.1 ?></strong></span>
+                <span><strong>$<?php echo $total * 0.02 ?></strong></span>
               </li>
             </ul>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
+            <a href="checkout.php" type="button" class="btn btn-primary btn-lg btn-block">
               Go to checkout
-            </button>
+            </a>
           </div>
         </div>
       </div>
