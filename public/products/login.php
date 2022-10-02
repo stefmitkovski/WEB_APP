@@ -18,14 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (strlen($email) > 255 || strlen($password) > 255 || strlen($password) < 6) {
         $errors[] = 'Wrong email or password';
     } else {
-        $check = $user->checkExistence($email);
+        $check = $user->checkCredentials($email);
     }
     if (empty($errors)) {
         if ($check->rowCount() == 1) {
             $data = $check->fetch(PDO::FETCH_ASSOC);
             if (password_verify($password, $data['password'])) {
                 $_SESSION['user'] = $data['name'];
-                $_SESSION['email'] = $data['email'];
                 header("Location: index.php");
                 exit;
             }

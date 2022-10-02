@@ -28,6 +28,13 @@ if(!$repeat){
     
 setcookie("cart", json_encode($cart));
 
-}
+} 
 
-header("Location: index.php");
+
+ if (isset($_GET['back'])) {
+    $w = $_GET['back'];
+    header("Location: productPage.php?pom=$w");
+ }else{header("Location: index.php");}
+
+
+?>

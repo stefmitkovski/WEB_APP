@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errors)) {
         if ($user->createUser($email,$name,$password)) {
             $_SESSION['user'] = $name;
-            $_SESSION['email']= $email;
             header('Location: index.php');
             exit;
         }
-    }
+    }else{
         setcookie("errors", json_encode($errors));
         header('Location: index.php');
+    }
 }
 ?>

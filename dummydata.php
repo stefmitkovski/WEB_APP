@@ -39,7 +39,10 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone 11" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "<ul><li>Released 2019, September 20</li>
+    <li> 194g, 8.3mm thickness</li>
+    <li>iOS 13, up to iOS 16.0.2</li>
+    <li>64GB/128GB/256GB storage,</li> <li>no card slot</li></ul>");
     $statement->bindValue(':image', '\public\images\iphone\iphone11.jpg');
     $statement->bindValue(':price_new', 650);
     $statement->bindValue(':price_old', 800);
@@ -52,7 +55,10 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone 13 Mini" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "<ul><li>Released 2021, September 24</li>
+    <li>141g, 7.7mm thickness</li>
+    <li>iOS 15, up to iOS 16.0.2</li>
+    <li>128GB/256GB/512GB storage, </li><li>no card slot</li></ul>");
     $statement->bindValue(':image', '\public\images\iphone\iphone_13_mini.jpg');
     $statement->bindValue(':price_new', 800);
     $statement->bindValue(':price_old', 1000);
@@ -65,7 +71,11 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone SE 3" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "<ul><li>
+        Released 2022, March 18</li>
+        <li>144g, 7.3mm thickness</li>
+        <li>iOS 15.4, up to iOS 16.0.2</li>
+        <li>64GB/128GB/256GB storage,</li> no card slot</li></ul>");
     $statement->bindValue(':image', '\public\images\iphone\iphone_se3.jpg');
     $statement->bindValue(':price_new', 800);
     $statement->bindValue(':price_old', 1000);
@@ -78,7 +88,15 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone 14 Plus" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description',"● 6.1-inch and 6.7-inch display sizes
+    ● Emergency SOS via satellite
+    ● Lightning port and notch remain
+    ● No SIM tray in the United States
+    ● A15 processor with 5-core GPU
+    Exp. release 2022, October 07
+203g, 7.8mm thickness
+iOS 16, up to iOS 16.0.2
+128GB/256GB/512GB storage, no card slot");
     $statement->bindValue(':image', '\public\images\iphone\iphone14plus.jpg');
     $statement->bindValue(':price_new', null);
     $statement->bindValue(':price_old', 1200);
@@ -91,7 +109,10 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone 14 PRO" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "Released 2022, September 16
+    206g, 7.9mm thickness
+    iOS 16, up to iOS 16.0.2
+    128GB/256GB/1TB storage, no card slot");
     $statement->bindValue(':image', '\public\images\iphone\iphone14pro.jpg');
     $statement->bindValue(':price_new', null);
     $statement->bindValue(':price_old', 1200);
@@ -104,7 +125,11 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone 14 PRO MAX" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "
+        Released 2022, September 16
+        240g, 7.9mm thickness
+        iOS 16, up to iOS 16.0.2
+        128GB/256GB/1TB storage, no card slot");
     $statement->bindValue(':image', '\public\images\iphone\iphone14promax.jpg');
     $statement->bindValue(':price_new', null);
     $statement->bindValue(':price_old', 1200);
@@ -117,7 +142,10 @@ for ($i = 0; $i < 5; $i++) {
     $statement = $db->prepare('INSERT INTO products (title,description,image,price_new,price_old,category,brand,stock)
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"Iphone SE" );
-    $statement->bindValue(':description', $faker->paragraph());
+    $statement->bindValue(':description', "Released 2022, March 18
+    144g, 7.3mm thickness
+    iOS 15.4, up to iOS 16.0.2
+    64GB/128GB/256GB storage, no card slot");
     $statement->bindValue(':image', '\public\images\iphone\iphonese.jpg');
     $statement->bindValue(':price_new', 800);
     $statement->bindValue(':price_old', 900);
@@ -287,7 +315,7 @@ for ($i = 0; $i < 5; $i++) {
     VALUES (:title, :description, :image, :price_new, :price_old , :category , :brand , :stock)');
     $statement->bindValue(':title',"SMART LED TV LG 55 UQ70003LBQ" );
     $statement->bindValue(':description', "4k UHD SMART LED TV LG 55 UQ70003LBQ, 55(139.7cm), α5 Gen5 AI, Wifi");
-    $statement->bindValue(':image', '\public\images\lg and sony\4k UHD SMART LED TV LG 55 UQ70003LBQ, 55(139.7cm), α5 Gen5 AI, Wifi.jpg');
+    $statement->bindValue(':image', '\public\images\lg and sony\4k UHD SMART LED TV LG 55 UQ70003LBQ, 55(139.7cm), α5 Gen5 AI, Wifi.JPG');
     $statement->bindValue(':price_new', 400);
     $statement->bindValue(':price_old', 500);
     $statement->bindValue(':category', "TV");
@@ -417,7 +445,7 @@ for ($i = 0; $i < 5; $i++) {
     $statement->bindValue(':price_new', 899);
     $statement->bindValue(':price_old', 1000);
     $statement->bindValue(':category', "PC and Laptop");
-    $statement->bindValue(':brand', "DELL");
+    $statement->bindValue(':brand', "Apple");
     $statement->bindValue(':stock', rand(0, 100));
     $statement->execute();
 
@@ -469,4 +497,5 @@ for ($i = 0; $i < 5; $i++) {
     $statement->bindValue(':stock', rand(0, 100));
     $statement->execute();
     
+    echo "Dummy data inserted successfully \r\n";
 ?>
