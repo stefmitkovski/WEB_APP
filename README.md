@@ -2,7 +2,7 @@
 
 ## Михаела
 
-- [ ] cart
+- [ ] cart (90% done)
 
 - [x] page(card) za sekoj individualen product
 
