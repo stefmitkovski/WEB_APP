@@ -7,8 +7,15 @@ require_once '../../database.php';
 
 $total = 0;
 session_start();
-$user = new UserModel($db);
 $product = new ProductModel($db);
+if(isset($_SESSION['user'])){
+    $user = new UserModel($db);
+    $user = $user->checkExistence($_SESSION['email'])->fetch(PDO::FETCH_ASSOC);
+}
+
+// if($_SERVER['REQUEST_METHOD'] == 'POST'){
+//     if()
+// }
 
 ?>
 
@@ -62,11 +69,15 @@ $product = new ProductModel($db);
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" action="" method="POST">
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
+                                <?php if(isset($_SESSION['user'])): ?>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="<?php echo $user['name'];?>" readonly>
+                                <?php else: ?>
                                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                                <?php endif; ?>
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
@@ -82,7 +93,11 @@ $product = new ProductModel($db);
 
                             <div class="col-12">
                                 <label for="email" class="form-label">Email </span></label>
+                                <?php if(isset($_SESSION['user'])):?>
+                                <input type="email" class="form-control" id="email" value="<?php echo $_SESSION['email'];?>" readonly>
+                                <?php else: ?>
                                 <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                                <?php endif; ?>
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
@@ -90,7 +105,7 @@ $product = new ProductModel($db);
 
                             <div class="col-12">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                                 <div class="invalid-feedback">
                                     Please enter your shipping address.
                                 </div>
@@ -116,7 +131,7 @@ $product = new ProductModel($db);
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required="">
+                                <input type="text" class="form-control" id="zip" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
@@ -128,15 +143,15 @@ $product = new ProductModel($db);
 
                         <div class="my-3">
                             <div class="form-check">
-                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required>
                                 <label class="form-check-label" for="credit">Credit card</label>
                             </div>
                             <div class="form-check">
-                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="debit">Debit card</label>
                             </div>
                             <div class="form-check">
-                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
                                 <label class="form-check-label" for="paypal">PayPal</label>
                             </div>
                         </div>
@@ -144,7 +159,7 @@ $product = new ProductModel($db);
                         <div class="row gy-3">
                             <div class="col-md-6">
                                 <label for="cc-name" class="form-label">Name on card</label>
-                                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                <input type="text" name="name-card" class="form-control" id="cc-name" placeholder="" required>
                                 <small class="text-muted">Full name as displayed on card</small>
                                 <div class="invalid-feedback">
                                     Name on card is required
@@ -153,7 +168,7 @@ $product = new ProductModel($db);
 
                             <div class="col-md-6">
                                 <label for="cc-number" class="form-label">Credit card number</label>
-                                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                                <input type="text" name="cc-number" class="form-control" id="cc-number" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Credit card number is required
                                 </div>
@@ -161,7 +176,7 @@ $product = new ProductModel($db);
 
                             <div class="col-md-3">
                                 <label for="cc-expiration" class="form-label">Expiration</label>
-                                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                                <input type="text" name="cc-expiration" class="form-control" id="cc-expiration" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Expiration date required
                                 </div>
@@ -169,7 +184,7 @@ $product = new ProductModel($db);
 
                             <div class="col-md-3">
                                 <label for="cc-cvv" class="form-label">CVV</label>
-                                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                                <input type="text" name="cvv" class="form-control" id="cc-cvv" placeholder="" requireds>
                                 <div class="invalid-feedback">
                                     Security code required
                                 </div>
