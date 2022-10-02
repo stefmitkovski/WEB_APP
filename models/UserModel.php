@@ -36,17 +36,15 @@ class UserModel
 
     public function createToken($email)
     {    // Креиранје токен за ресетирање на лозинка
-        if ($this->checkCredentials($email)) {
+        if ($this->checkCredentials($email)->rowCount()) {
             $token = bin2hex(openssl_random_pseudo_bytes(16));
             $statemant = $this->db->prepare('INSERT INTO reset_password (email, token) VALUES (:email, :token);');
             $statemant->bindValue(":email", $email);
             $statemant->bindValue(":token", $token);
             $statemant->execute();
-            if ($statemant) {
-                return $token;
-            }
-            return 0;
+            return $token;
         }
+        return 0;
     }
 
     public function checkToken($email, $token)
@@ -67,8 +65,7 @@ class UserModel
             $statemant->bindValue(":email", $email);
             $statemant->execute();
             return $statemant->rowCount();
-        } else {
-            return 0;
         }
+        return 0;
     }
 }

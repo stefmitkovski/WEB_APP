@@ -24,6 +24,6 @@
 
 - [x] Cookies
 
-- [ ] Transactions (Halway done)
+- [ ] Transactions (Halfway done)
 
-- [ ] Forgot Password (Halfway done)
+- [x] Forgot Password

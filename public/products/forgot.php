@@ -11,45 +11,48 @@ session_unset();
 session_destroy();
 session_start();
 
-// $user = new UserModel($db);
-// $user->changePassword($_POST['email'], $_POST['token'],$_POST['password']);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new UserModel($db);
     if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['token'])) {
-        $user->changePassword($_POST['email'], $_POST['token'],$_POST['password']);
-        header("Location: index.php");
+        $attempt = $user->changePassword($_POST['email'], $_POST['token'], $_POST['password']);
+        if ($attempt == 1) {
+            require_once '../../views/partials/success.php';
+        } else {
+            require_once '../../views/partials/errors.php';
+        }
     } else if (isset($_POST['email'])) {
         $token = $user->createToken($_POST['email']);
-        $output = '<p>Dear user,</p>';
-        $output .= '<p>Please click on the following link to reset your password.</p>';
-        $output .= '<p>-------------------------------------------------------------</p>';
-        $output .= '<p><a href="http://localhost:3000/public/products/forgot.php?token=' . $token .'&email='.$_POST['email']. '</a>Link</p>';
-        $output .= '<p>-------------------------------------------------------------</p>';
-        $output .= '<p>Thanks,</p>';
-        $output .= '<p>Electro Team</p>';
-        $body = $output;
-        $subject = "Password Recovery - Electro Shop";
-        $mail = new PHPMailer();
-        $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '4ba1f5378ec980';    // Овие се генерирани од mailtrap
-        $mail->Password = 'c0c67c9e161b9c';    //
-        $mail->IsHTML(true);
-        $mail->From = "noreply@electro.com";
-        $mail->FromName = "Electro";
-        $mail->Sender = "noreply@electro.com";
-        $mail->Subject = $subject;
-        $mail->Body = $body;
-        $mail->AddAddress($_POST['email']);
-        if(!$mail->Send()){
-            echo "Mailer Error: " . $mail->ErrorInfo;
-            }else{
-            echo "<div class='error'>
-            <p>An email has been sent to you with instructions on how to reset your password.</p>
-            </div><br /><br /><br />";
+        if ($token == 0) {
+            require_once '../../views/partials/errors.php';
+        } else {
+            $output = '<p>Dear user,</p>';
+            $output .= '<p>Please click on the following link to reset your password.</p>';
+            $output .= '<p>-------------------------------------------------------------</p>';
+            $output .= '<p><a href="http://localhost:3000/public/products/forgot.php?token=' . $token . '&email=' . $_POST['email'] . '&action=reset" target="_blank </a>Link</p>';
+            $output .= '<p>-------------------------------------------------------------</p>';
+            $output .= '<p>Thanks,</p>';
+            $output .= '<p>Electro Team</p>';
+            $body = $output;
+            $subject = "Password Recovery - Electro Shop";
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Host = 'smtp.mailtrap.io';
+            $mail->SMTPAuth = true;
+            $mail->Port = 2525;
+            $mail->Username = '4ba1f5378ec980';    // Овие се генерирани од mailtrap
+            $mail->Password = 'c0c67c9e161b9c';    //
+            $mail->IsHTML(true);
+            $mail->From = "noreply@electro.com";
+            $mail->FromName = "Electro";
+            $mail->Sender = "noreply@electro.com";
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+            $mail->AddAddress($_POST['email']);
+            if (!$mail->Send()) {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            } else {
+                require_once '../../views/partials/success.php';
+            }
         }
     }
 }
@@ -61,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <div class="mb-3">
             <p class="form-label">Email</p>
-            <?php if(isset($_GET['token']) && isset($_GET['email'])): ?>
-                <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email'];?>" readonly>
-                <?php else: ?>
-                    <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email'];?>" placeholder="Enter your email here">
+            <?php if (isset($_GET['token']) && isset($_GET['email'])) : ?>
+                <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email']; ?>" readonly>
+            <?php else : ?>
+                <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email']; ?>" placeholder="Enter your email here">
             <?php endif; ?>
         </div>
         <?php if (isset($_GET['token']) && isset($_GET['email'])) : ?>
