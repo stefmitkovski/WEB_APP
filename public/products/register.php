@@ -39,13 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors[] = "The name number isn't the right size";
     }
 
-    if ($user->checkExistence($email) > 0) {
+    if ($user->checkExistence($email)->rowCount() > 0) {
         $errors = 'This email is taken please enter a new one';
     }
 
     if (empty($errors)) {
         if ($user->createUser($email,$name,$password)) {
             $_SESSION['user'] = $name;
+            $_SESSION['email'] = $email;
             header('Location: index.php');
             exit;
         }

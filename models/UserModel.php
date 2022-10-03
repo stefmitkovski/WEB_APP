@@ -13,7 +13,7 @@ class UserModel
     { // Провери дали постои корисник со овој емаил
         $statement = $this->db->prepare("SELECT * FROM users WHERE email = ?");
         $statement->execute([$email]);
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement;
     }
 
     public function createUser($email, $name, $password)
@@ -26,17 +26,9 @@ class UserModel
         return $statemant->execute();
     }
 
-    public function checkCredentials($email)
-    { // Провери дали се валидни податоците (недовршено)
-        $statement = $this->db->prepare('SELECT password,name FROM users WHERE email = :email');
-        $statement->bindValue(':email', $email);
-        $statement->execute();
-        return $statement;
-    }
-
     public function createToken($email)
     {    // Креиранје токен за ресетирање на лозинка
-        if ($this->checkCredentials($email)->rowCount()) {
+        if ($this->checkExistence($email)->rowCount()) {
             $token = bin2hex(openssl_random_pseudo_bytes(16));
             $statemant = $this->db->prepare('INSERT INTO reset_password (email, token) VALUES (:email, :token);');
             $statemant->bindValue(":email", $email);

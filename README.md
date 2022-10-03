@@ -24,6 +24,8 @@
 
 - [x] Cookies
 
-- [ ] Transactions (Halfway done)
-
 - [x] Forgot Password
+
+- [ ] Transactions (90% done)
+
+- [ ] Search Bar

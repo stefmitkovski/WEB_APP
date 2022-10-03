@@ -32,7 +32,7 @@ require_once '../../views/partials/navbar.php';
                             ?> items</h5>
             </div>
             <?php foreach ($cart as $c) : ?>
-              <?php $prod1 = $product->getSpecific($c->productID); foreach ($prod1 as $prod) :?>
+              <?php $prod = $product->getSpecific($c->productID);?>
               <div class="card-body">
                 <!-- Single item -->
                 <div class="row">
@@ -97,7 +97,7 @@ require_once '../../views/partials/navbar.php';
                 </div>
               </div>
               <!-- Single item -->
-            <?php endforeach;endforeach;  ?>
+            <?php endforeach; ?>
             <hr class="my-4" />
           </div>
         </div>

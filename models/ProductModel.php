@@ -67,7 +67,10 @@ class ProductModel
     }
     
     public function getSpecific($id){
-        return $this->db->query("SELECT * FROM products WHERE product_id = $id");
+        $statement = $this->db->prepare("SELECT * FROM products WHERE product_id = :id");
+        $statement->bindValue(":id",$id);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     public function sort($sort){
