@@ -8,13 +8,13 @@ require_once '../../views/partials/navbar.php';
 
 ?>
 <?php
-function the_function($id,$models) {
-return $models->getSpecific($id); 
- }
+// function the_function($id,$models) {
+// return $models->getSpecific($id); 
+//  }
 
  if (isset($_GET['pom'])) {
 
-  $modelsList = the_function(($_GET['pom']),$models);
+  $row = $models->getSpecific($_GET['pom']);
   include '../../views/partials/productPageCard.php';
   }
    ?>

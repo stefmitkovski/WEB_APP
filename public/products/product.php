@@ -149,6 +149,10 @@ require_once '../../views/partials/navbar.php';
         </div>
         <div class="col-9 border border-secondary p-auto" >
             <?php
+            if($_SERVER['REQUEST_METHOD'] != 'POST'){
+                $modelsList = $models->getAll($sort);
+            }
+            
             include '../../views/partials/productCard.php';
             ?>
         </div>

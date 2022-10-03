@@ -1,12 +1,9 @@
 <!-- TODO: breadcrumbs -->
 
 
-
-
 <section class="py-auto" >
     <div class="container px-4 px-lg-5 my-5 " id="section" style="padding: 100px;">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <?php foreach ($modelsList as $row) : ?>
                 <div class="col-md-6">
                     <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">
                         <img class="card-img-top mb-5 mb-md-0 w-100 h-100" style="padding: 20px;"src="<?php echo $row['image'] ?>" alt="...">
@@ -70,7 +67,6 @@
                     </div>
 
                 </div>
-            <?php endforeach ?>
         </div>
     </div>
 </section>
