@@ -7,7 +7,7 @@
                 <div class="card h-100 " id="card">
                     <!-- Sale badge-->
                     <?php if(isset($row['price_new'])): ?> 
-                    <div class="badge bg-danger  text-white position-absolute p-2" style="top: 0.5rem; right: 0.5rem; font-size: 12pt;">Sale</div>
+                    <div class="badge bg-danger text-white position-absolute p-2" style="top: 0.5rem; right: 0.5rem; font-size: 12pt;">Sale</div>
                     <?php endif ?>
                     <!-- Product image-->
                     <img class="card-img-top w-70 p-3" src='<?php echo $row['image'] ?>' alt="<?php echo $row['title'] ?>" />

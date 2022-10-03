@@ -1,6 +1,8 @@
 <?php
 require_once '../../views/partials/header.php';
+require_once '../../database.php';
 session_start();
+
 ?>
 <style>
     <?php include '../../public/app.css' ?>
@@ -20,14 +22,14 @@ session_start();
         <ul class="navbar-nav mr-auto justify-content-center" style="width: 100%;">
 
             <li class="nav-item active " style="width: 80%;">
-                <form class="form-inline my-1 my-lg-0 bg-nav " action="../../public/products/product.php#allProducts">
-                    <input class="form-control mr-sm-2 bg-nav white-text" id="#myInput" style="width: 70%;" type="search" placeholder="Search Products" aria-label="Search">
+                <form class="form-inline my-1 my-lg-0 bg-nav " action="search.php" method="get">
+                    <input class="form-control mr-sm-2 bg-nav white-text" list="datalistOptions" onkeyup="showResult(this.value)" id="#myInput" style="width: 70%;" name="search" type="text" placeholder="Search Products" aria-label="Search">
             <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     All Categories
                 </a>
                 <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?all=true" >All Categories</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?all=true">All Categories</a>
                     <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?tv=true">TV</a>
                     <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?smartphones=true">Smartphones</a>
                     <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?pclaptop=true">PC & Laptops</a>
@@ -175,9 +177,6 @@ session_start();
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>

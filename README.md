@@ -28,4 +28,4 @@
 
 - [ ] Transactions (90% done)
 
-- [ ] Search Bar
+- [x] Search Bar

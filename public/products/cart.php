@@ -165,7 +165,7 @@ require_once '../../views/partials/navbar.php';
     </div>
   </section>
 <?php else : ?>
-  <div class="row">
+  <div class="row py-5">
     <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
       <img src="../images/bag.svg" alt="bags" class="img-fluid mb-4">
       <h2>Your shopping cart is empty</h2>
