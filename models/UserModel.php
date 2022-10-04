@@ -45,7 +45,13 @@ class UserModel
         $statemant->bindValue(":email", $email);
         $statemant->bindValue(":token", $token);
         $statemant->execute();
-        return $statemant->rowCount();
+        if ($statemant->rowCount()) {
+            $statemant = $this->db->prepare("DELETE FROM reset_password WHERE email = :email AND token = :token");
+            $statemant->bindValue(":email", $email);
+            $statemant->bindValue(":token", $token);
+            $statemant->execute();
+            return $statemant->rowCount();
+        }
     }
 
     public function changePassword($email, $token, $pass)
