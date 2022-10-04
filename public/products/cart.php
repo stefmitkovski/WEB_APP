@@ -83,7 +83,7 @@ require_once '../../views/partials/navbar.php';
 
                   <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                     <!-- Data -->
-                    <p><strong><?php echo $prod["title"] ?></strong></p>
+                    <p><strong><a href="../../public/products/productPage.php?pom=<?php echo $prod["product_id"]; ?>"> <?php echo $prod['title'] ?></a></strong></p>
                     <p>Description: <?php echo $prod["description"] ?></p>
                     <form action="delete-cart.php" method="POST">
                       <input type="hidden" name="productID" value="<?php echo $c->productID ?>">
