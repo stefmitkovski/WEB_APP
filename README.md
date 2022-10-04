@@ -2,7 +2,7 @@
 
 ## Михаела
 
-- [ ] cart (90% done)
+- [x] cart (done)
 
 - [x] page(card) za sekoj individualen product
 
@@ -15,6 +15,10 @@
 - [x] hardcode dummydata.php
 
 - [x] product.php (sort by..., prikaz na site proizvodi)
+
+- [ ] navbar categories sort
+
+- [ ] search.php layout
 
 ## Стефан
 
