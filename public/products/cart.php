@@ -8,8 +8,18 @@ require_once '../../views/partials/navbar.php';
 
   $product = new ProductModel($db);
   $total = 0;
+  $number = 0;
   $cart = json_decode($_COOKIE["cart"]);
 
+  foreach ($cart as $t) {
+    $p = $product->getSpecific($t->productID);
+    if (isset($p['price_new'])) {
+      $total = $total + $p['price_new'] * $t->quantity;
+    } else {
+      $total = $total + $p['price_old'] * $t->quantity;
+    }
+    $number = $number +  $t->quantity;
+  }
   ?>
 
   <section class="h-100 gradient-custom">
@@ -52,18 +62,7 @@ require_once '../../views/partials/navbar.php';
         <div class="col-md-12">
           <div class="card mb-4">
             <div class="card-header py-3">
-              <h5 class="mb-0">Cart - <?php
-                                      if (isset($_COOKIE["cart"])) {
-                                        $cart = json_decode($_COOKIE["cart"]);
-                                        $total = 0;
-                                        foreach ($cart as $c) {
-                                          $total = $total + $c->quantity;
-                                        }
-                                        echo $total;
-                                      } else {
-                                        echo "0";
-                                      }
-                                      ?> items</h5>
+              <h5 class="mb-0">Cart - <?php echo $number ?> items</h5>
             </div>
             <?php foreach ($cart as $c) : ?>
               <?php $prod = $product->getSpecific($c->productID); ?>
@@ -121,10 +120,8 @@ require_once '../../views/partials/navbar.php';
                     <h7>Price: </br></h7>
                     <?php if ($prod["price_new"]) : ?>
                       <strong>$<?php echo $prod["price_new"] ?></strong>
-                      <?php $total = $total + $prod["price_new"] * $c->quantity ?>
                     <?php else : ?>
                       <strong>$<?php echo $prod["price_old"] ?></strong>
-                      <?php $total = $total + $prod["price_old"] * $c->quantity ?>
                     <?php endif; ?>
                   </p>
                   <!-- Price -->
@@ -137,31 +134,31 @@ require_once '../../views/partials/navbar.php';
         </div>
       </div>
       <div class="card mb-4">
-          <div class="card-body">
-            <p><strong>Expected shipping delivery</strong></p>
+        <div class="card-body">
+          <p><strong>Expected shipping delivery</strong></p>
 
-            <p class="mb-0" id="date"></p>
-            <script>
-              let currentdate = new Date();
-              let onemonth = new Date(currentdate.setMonth(currentdate.getMonth() + 1));
-              let threemonth = new Date(currentdate.setMonth(currentdate.getMonth() + 3));
-              const D = new Date(onemonth);
-              const C = new Date(threemonth);
-              let ff = (D.getDate()) + "." + (D.getMonth() + 1) + "." + (D.getFullYear());
-              let bb = (C.getDate()) + "." + (C.getMonth() + 1) + "." + (C.getFullYear());
-              $("#date").append(ff + " - " + bb);
-            </script>
-          </div>
+          <p class="mb-0" id="date"></p>
+          <script>
+            let currentdate = new Date();
+            let onemonth = new Date(currentdate.setMonth(currentdate.getMonth() + 1));
+            let threemonth = new Date(currentdate.setMonth(currentdate.getMonth() + 3));
+            const D = new Date(onemonth);
+            const C = new Date(threemonth);
+            let ff = (D.getDate()) + "." + (D.getMonth() + 1) + "." + (D.getFullYear());
+            let bb = (C.getDate()) + "." + (C.getMonth() + 1) + "." + (C.getFullYear());
+            $("#date").append(ff + " - " + bb);
+          </script>
         </div>
-        <div class="card mb-4 mb-lg-0">
-          <div class="card-body">
-            <p><strong>We accept</strong></p>
-            <img class="me-2" width="50px" src="\public\images\visa.png" alt="Visa" />
-            <img class="me-2" width="50px" src="\public\images\amex.png" alt="American Express" />
-            <img class="me-2" width="50px" src="\public\images\master.png" alt="Mastercard" />
-            <img class="me-2" width="50px" src="\public\images\paypal.png" alt="PayPal acceptance mark" />
-          </div>
+      </div>
+      <div class="card mb-4 mb-lg-0">
+        <div class="card-body">
+          <p><strong>We accept</strong></p>
+          <img class="me-2" width="50px" src="\public\images\visa.png" alt="Visa" />
+          <img class="me-2" width="50px" src="\public\images\amex.png" alt="American Express" />
+          <img class="me-2" width="50px" src="\public\images\master.png" alt="Mastercard" />
+          <img class="me-2" width="50px" src="\public\images\paypal.png" alt="PayPal acceptance mark" />
         </div>
+      </div>
     </div>
     </div>
   </section>
