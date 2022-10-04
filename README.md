@@ -30,6 +30,6 @@
 
 - [x] Forgot Password
 
-- [ ] Transactions (90% done)
+- [x] Transactions
 
 - [x] Search Bar

@@ -68,7 +68,7 @@
                 <?php endif; ?>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD) (Includes VAT)</span>
-                    <strong><?php echo round($total); ?></strong>
+                    <strong><?php echo '$'.round($total); ?></strong>
                 </li>
             </ul>
         </div>

@@ -11,6 +11,11 @@ session_unset();
 session_destroy();
 session_start();
 
+if(isset($_SESSION['name'])){   // Ако си најавен да те одлогира
+    header("Location: logout.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = new UserModel($db);
     if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['token'])) {
@@ -28,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $output = '<p>Dear user,</p>';
             $output .= '<p>Please click on the following link to reset your password.</p>';
             $output .= '<p>-------------------------------------------------------------</p>';
-            $output .= '<p><a href="http://localhost:3000/public/products/forgot.php?token=' . $token . '&email=' . $_POST['email'] . '&action=reset" target="_blank </a>Link</p>';
+            $output .= '<p><a href="http://localhost/public/products/forgot.php?token=' . $token . '&email=' . $_POST['email'] . '</a>Link</p>';
             $output .= '<p>-------------------------------------------------------------</p>';
             $output .= '<p>Thanks,</p>';
             $output .= '<p>Electro Team</p>';
