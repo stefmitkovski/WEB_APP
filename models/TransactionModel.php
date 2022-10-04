@@ -17,22 +17,24 @@ class TransactionModel
         $this->db = $db;
     }
 
-    public function createTranaction($email, $product, $quantity)
+    public function createTranaction($email, $product, $quantity,$price)
     {
         $user = new UserModel($this->db);
         if ($user->checkExistence($email)->rowCount() == 1) {
-            $statemant = $this->db->prepare('INSERT INTO transaction (user,product,quantity) 
-            values (:user, :product, :quantity)');
+            $statemant = $this->db->prepare('INSERT INTO transaction (user,product,quantity,price) 
+            values (:user, :product, :quantity, :price)');
             $statemant->bindValue(":user", $email);
             $statemant->bindValue(":product", $product);
             $statemant->bindValue(":quantity", $quantity);
+            $statemant->bindValue(":price", $price);
             return $statemant->execute();
         }
-        $statemant = $this->db->prepare('INSERT INTO transaction (anon_user,product,quantity) 
-        values (:anon_user, :product, :quantity)');
+        $statemant = $this->db->prepare('INSERT INTO transaction (anon_user,product,quantity,price) 
+        values (:anon_user, :product, :quantity, :price)');
         $statemant->bindValue(":anon_user", $email);
         $statemant->bindValue(":product", $product);
         $statemant->bindValue(":quantity", $quantity);
+        $statemant->bindValue(":price", $price);
         return $statemant->execute();
     }
 

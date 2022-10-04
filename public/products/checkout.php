@@ -9,6 +9,7 @@
     
     $total = 0;
     $numberItems = 0;
+    $price = 0;
     session_start();
     $user = new UserModel($db);
     $product = new ProductModel($db);
@@ -17,9 +18,17 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['email']) && isset($_POST['cc-name']) && isset($_POST['cc-expiration']) && isset($_POST['cc-cvv'])) {
             foreach (json_decode($_COOKIE['cart']) as $c) {
-                $transaction->createTranaction($_POST['email'], $c->productID, $c->quantity);
+                $p = $product->getSpecific($c->productID);
+                if(!is_null($p['price_new'])){
+                    $price = $p['price_new'];
+                }else{
+                    $price = $p['price_old'];
+                }
+                $transaction->createTranaction($_POST['email'], $c->productID, $c->quantity,$price);
             }
             $transaction->transactionMail($_POST['email'],json_decode($_COOKIE['cart']));
+            setcookie("cart", "", time() - 3600);
+            header("Location: index.php");
         }
     }
 
@@ -181,7 +190,7 @@
 
                     <div class="col-md-3">
                         <label for="cc-expiration" class="form-label">Expiration</label>
-                        <input type="text" name="cc-expiration" class="form-control" id="cc-expiration" placeholder="" required>
+                        <input type="tel" maxlength="5" name="cc-expiration" class="form-control" id="cc-expiration" placeholder="" required>
                         <div class="invalid-feedback">
                             Expiration date required
                         </div>
@@ -189,7 +198,7 @@
 
                     <div class="col-md-3">
                         <label for="cc-cvv" class="form-label">CVV</label>
-                        <input type="text" name="cc-cvv" class="form-control" id="cc-cvv" placeholder="" required>
+                        <input type="password" maxlength="3" name="cc-cvv" inputmode="numeric" class="form-control" id="cc-cvv" placeholder="" required>
                         <div class="invalid-feedback">
                             Security code required
                         </div>

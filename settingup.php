@@ -55,6 +55,7 @@ require_once 'database.php';
     user varchar(100) default null,
     anon_user varchar(100) default null,
     product int,
+    price int,
     transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user) REFERENCES users(email),
     FOREIGN KEY (product) REFERENCES products(product_id)
