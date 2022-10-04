@@ -38,7 +38,7 @@ require_once '../../views/partials/navbar.php';
 
 <div class="container" id="allproducts" style="margin-top: 30px;">
     <div class="row">
-        <div class="col-3 border border-secondary">
+        <div class="col-3 border">
         <form action="product.php#allproducts" method="POST" id="qrcodeRedirectForm"><b> Sorty By:</b>
                 <select name="order" id="order">
                     <option value="choose"></option>
@@ -147,10 +147,20 @@ require_once '../../views/partials/navbar.php';
             ?>
         </form>
         </div>
-        <div class="col-9 border border-secondary p-auto" >
+        <div class="col-9 border p-auto" >
             <?php
             if($_SERVER['REQUEST_METHOD'] != 'POST'){
-                $modelsList = $models->getAll($sort);
+                
+                    $modelsList = $models->getAll($sort);
+                if($_GET['sort']=='tv'){
+                    $modelsList = $models->getByCategory("TV",$sort);
+                }elseif($_GET['sort']=='smartphones'){
+                    $modelsList = $models->getByCategory("Smartphone",$sort);
+                }elseif($_GET['sort']=='pclaptop'){
+                    $modelsList = $models->getByCategory("PC and Laptop",$sort);
+                }elseif($_GET['sort']=='headpgones'){
+                    $modelsList = $models->getByCategory("Headphones",$sort);
+                }
             }
             
             include '../../views/partials/productCard.php';
