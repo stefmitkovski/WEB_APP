@@ -173,7 +173,7 @@
 
                     <div class="col-md-6">
                         <label for="cc-number" class="form-label">Credit card number</label>
-                        <input type="text" name="cc-number" class="form-control" id="cc-number" placeholder="" required>
+                        <input name="cc-number" class="form-control" id="cc-number" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
                         <div class="invalid-feedback">
                             Credit card number is required
                         </div>
