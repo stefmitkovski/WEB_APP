@@ -29,11 +29,11 @@ session_start();
                     All Categories
                 </a>
                 <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?all=true">All Categories</a>
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?tv=true">TV</a>
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?smartphones=true">Smartphones</a>
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?pclaptop=true">PC & Laptops</a>
-                    <a class="dropdown-item white-text" href="../../public/products/product.php#allproducts?headpgones=true">Headphones</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php?sort=all#allproducts">All Categories</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php?sort=tv#allproducts">TV</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php?sort=smartphones#allproducts">Smartphones</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php?sort=pclaptop#allproducts">PC & Laptops</a>
+                    <a class="dropdown-item white-text" href="../../public/products/product.php?sort=headpgones#allproducts">Headphones</a>
 
                 </div>
             </li>
