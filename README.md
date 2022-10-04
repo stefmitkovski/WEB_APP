@@ -16,9 +16,9 @@
 
 - [x] product.php (sort by..., prikaz na site proizvodi)
 
-- [ ] navbar categories sort
+- [x] navbar categories sort
 
-- [ ] search.php layout
+- [x] search.php layout
 
 ## Стефан
 
