@@ -61,7 +61,7 @@ class TransactionModel
            }
         }
         $output .= '</ul><p>-------------------------------------------------------------</p>';
-        $output .= '<p>Total: ' . $total . '</p></div>';
+        $output .= '<p>Total: $' . round($total * 1.2) . '</p></div>';
         $body = $output;
         $subject = "Recite from Electro";
         $mail = new PHPMailer();

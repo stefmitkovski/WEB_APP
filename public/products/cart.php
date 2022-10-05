@@ -46,7 +46,7 @@ require_once '../../views/partials/navbar.php';
                     <p class="mb-0">(including 20% VAT)</p>
                   </strong>
                 </div>
-                <span><strong>$<?php echo $total * 1.2 ?></strong></span>
+                <span><strong>$<?php echo round($total * 1.2); ?></strong></span>
               </li>
             </ul>
 

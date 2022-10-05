@@ -8,7 +8,7 @@ require_once '../../models/UserModel.php';
 require_once '../../database.php';
 
 session_unset();
-session_destroy();
+// session_destroy();
 session_start();
 
 if(isset($_SESSION['name'])){   // Ако си најавен да те одлогира
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php if (isset($_GET['token']) && isset($_GET['email'])) : ?>
                 <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email']; ?>" readonly>
             <?php else : ?>
-                <input type="text" name="email" class="form-control" id="username" value="<?php echo $_GET['email']; ?>" placeholder="Enter your email here">
+                <input type="text" name="email" class="form-control" id="username" placeholder="Enter your email here">
             <?php endif; ?>
         </div>
         <?php if (isset($_GET['token']) && isset($_GET['email'])) : ?>

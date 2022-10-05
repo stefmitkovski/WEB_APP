@@ -63,9 +63,9 @@
                             <?php $total = $total + $prod["price_old"] * $c->quantity ?>
                         <?php endif; ?>
                     </li>
-                        <?php $total = $total + $total * 0.02;?>
-                    </li>
+                </li>
                 <?php endforeach; ?>
+                <?php $total = round($total * 1.2);?>
                 <?php if (isset($_SESSION['user'])) : ?>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
