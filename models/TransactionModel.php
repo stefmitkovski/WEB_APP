@@ -60,6 +60,10 @@ class TransactionModel
             $total = $total + $prod['price_old'] * $p->quantity;
            }
         }
+        if(isset($_SESSION['user'])){
+            $total = $total - $total *0.05;
+        }
+        
         $output .= '</ul><p>-------------------------------------------------------------</p>';
         $output .= '<p>Total: $' . round($total * 1.2) . '</p></div>';
         $body = $output;
